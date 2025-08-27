@@ -1,8 +1,3 @@
-/*
-Name: IaC Buildout for Terraform Associate Exam
-Description: AWS Infrastructure Buildout
-Contributors: Bryan and Gabe
-*/
 
 # Configure the AWS Provider
 provider "aws" {
@@ -68,7 +63,7 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-/* resource "aws_route_table" "private_route_table" {
+/*] resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.vpc.id
 
   route {
@@ -224,8 +219,9 @@ resource "aws_security_group" "vpc-web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+
   egress {
-    description = "Allow all ip and ports outbound"
+    description = "Allo all ip and ports outbound"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -236,7 +232,7 @@ resource "aws_security_group" "vpc-web" {
 # Terraform Resource Block - To Build Web Server in Public Subnet
 resource "aws_instance" "web_server" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.micro"
   subnet_id                   = aws_subnet.public_subnets["public_subnet_1"].id
   security_groups             = [aws_security_group.vpc-ping.id, aws_security_group.ingress-ssh.id, aws_security_group.vpc-web.id]
   associate_public_ip_address = true
