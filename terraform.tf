@@ -1,7 +1,13 @@
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "mafi"
+
+    workspaces {
+      name = "my-aws-app"
+    }
   }
+
   required_version = ">= 1.0.0"
   required_providers {
     aws = {

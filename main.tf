@@ -1,8 +1,3 @@
-/*
-Name: IaC Buildout for Terraform Associate Exam
-Description: AWS Infrastructure Buildout
-Contributors: Bryan and Gabe
-*/
 
 # Configure the AWS Provider
 provider "aws" {
@@ -68,7 +63,7 @@ resource "aws_route_table" "public_route_table" {
   }
 }
 
-/* resource "aws_route_table" "private_route_table" {
+/*] resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.vpc.id
 
   route {
