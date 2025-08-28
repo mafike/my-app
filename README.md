@@ -82,3 +82,50 @@ Open the run → Confirm & apply. Auto-Apply should remain off for prod.
 Your history matches this:
 terraform login → terraform fmt → terraform init -reconfigure → terraform init -backend-config=dev.hcl -reconfigure → terraform plan
 For VCS workspaces, plan/apply are owned by TFC runs triggered from VCS. Treat local plan as non-authoritative.
+
+## 📸 Screenshots
+
+> All screenshots are from the VCS-driven Terraform Cloud workflow for this repo.
+
+### Terraform Cloud – Dev Workspace
+
+<p align="center">
+  <img src="docs/images/tfc-dev-plan-finished.png" width="900" alt="Terraform Cloud dev run – plan finished">
+  <br/><em>Dev workspace: plan finished (+19 to create).</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/tfc-dev-apply-pending.png" width="900" alt="Terraform Cloud dev run – apply pending confirmation">
+  <br/><em>Manual approval: confirm & apply (auto-apply disabled).</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/tfc-apply-error.png" width="900" alt="Terraform Cloud dev run – apply error (instance type not Free Tier)">
+  <br/><em>Guardrail example: apply failed due to non-Free-Tier instance type.</em>
+</p>
+
+### Terraform Cloud – Prod Workspace
+
+<p align="center">
+  <img src="docs/images/tfc-prod-apply-finished.png" width="900" alt="Terraform Cloud prod run – apply finished">
+  <br/><em>Prod workspace: apply finished, 19 resources created.</em>
+</p>
+
+### Workspaces Overview
+
+<p align="center">
+  <img src="docs/images/tfc-workspaces-list.png" width="900" alt="Terraform Cloud workspaces list (dev/prod)">
+  <br/><em>VCS-connected workspaces per environment.</em>
+</p>
+
+### GitHub – Collaboration Flow
+
+<p align="center">
+  <img src="docs/images/gh-pr-open.png" width="900" alt="GitHub pull request open with failing check from TFC">
+  <br/><em>Open PR from <code>development</code> → <code>master</code>. TFC checks gate merges.</em>
+</p>
+
+<p align="center">
+  <img src="docs/images/gh-pr-merged.png" width="900" alt="GitHub pull request merged after green run">
+  <br/><em>PR merged once Terraform Cloud checks passed.</em>
+</p>
